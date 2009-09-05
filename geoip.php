@@ -7,27 +7,42 @@ class GeoIPComponent extends Object {
 
 	// callbacks
 
+	/**
+	* Called before Controller::beforeFilter().
+	*/
 	function initialize(&$controller, $settings = array())
 	{
-		$this->controller =& $controller;
+		$this->controller =& $controller; // saving the controller reference for later use
 		$this->gi = geoip_open(WWW_ROOT . "GeoIP.dat", GEOIP_STANDARD); // app/webroot/GeoIP.dat
 	}
 
+	/**
+	* Called after Controller::beforeFilter().
+	*/
 	function startup(&$controller)
 	{
 
 	}
 
+	/**
+	* Called after Controller::beforeRender().
+	*/
 	function beforeRender(&$controller)
 	{
 
 	}
 
+	/**
+	* Called after Controller::render().
+	*/
 	function shutdown(&$controller)
 	{
 
 	}
 
+	/**
+	* Called before Controller::redirect().
+	*/
 	function beforeRedirect(&$controller, $url, $status = null, $exit = true)
 	{
 

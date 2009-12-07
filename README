@@ -1,34 +1,25 @@
-Retrives the country name and/or country code for a given IP address. This
-CakePHP component is a (simple) wrapper based on MaxMind's GeoIP PHP API
-(geoip.inc), and requires a resource file (GeoIP.dat) to work correctly.
+h1. cakephp-geoip
 
-Requirements
+p. Retrives the country name and/or country code for a given IP address. This CakePHP component is a (simple) wrapper based on MaxMind's GeoIP PHP API (geoip.inc), and requires a resource file (GeoIP.dat) to work correctly.
 
-geoip.inc
-GeoIP.dat
+h2. Requirements
 
-Both files can be downloaded from http://www.maxmind.com/app/geolitecountry.
+@geoip.inc@
+@GeoIP.dat@
 
-Installation
+p. Both files can be downloaded from http://www.maxmind.com/app/geolitecountry.
 
-Place geoip.inc in app/vendors, and GeoIP.dat in app/webroot.
+h2. Installation
 
-Demo
+p. Place geoip.inc in app/vendors, and GeoIP.dat in app/webroot.
 
-Copy the supplied geoip_tests_controller.php to your app/controllers, and
-access the countryCode, countryName actions; e.g.
+h2. Demo
 
-http://path/to/CakePHP/geoip_tests/countryCode/67.205.41.208
-http://path/to/CakePHP/geoip_tests/countryName/67.205.41.208
+p. Copy the supplied geoip_tests_controller.php to your app/controllers, and access the countryCode, countryName actions; e.g.
 
-Usage
+* http://path/to/CakePHP/geoip_tests/countryCode/67.205.41.208
+* http://path/to/CakePHP/geoip_tests/countryName/67.205.41.208
 
-1. Add "Geoip" to your $components array in your controller; e.g.
+h2. Usage
 
-$components = array("Geoip");
-
-2. In your controller action:
-
-print $this->Geoip->countryCode("67.205.41.208");
-
-Thanks to MaxMind.
+"See here":http://github.com/kzhiwei/cakephp-geoip/blob/master/geoip_tests_controller.php.

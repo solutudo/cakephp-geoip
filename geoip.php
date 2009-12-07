@@ -19,44 +19,44 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
  */
 class GeoIPComponent extends Object {
+	// attributes
 
 	var $controller = null; // controller reference
-	var $gi = null;
+	var $gi = null; // GeoIP object
 
 	// callbacks
 
 	/**
-	* Called before Controller::beforeFilter().
-	*
-	* @param array $settings is used to pass all parameters to the component,
-	* and has the following possible keys by default -- all of which are
-	* optional:
-	*
-	* array(
-	*	'sourceFile' => "geoip.inc", // path to source file
-	*	'resourceFile' => "GeoIP.dat" // path to resource file
-	* )
-	*
-	* An example $components definition in your controller would look like:
-	*
-	* var $components = array("Geoip" => array(
-	*	"sourceFile" => "foo",
-	*	"resourceFile" => "bar")
-	* );
-	*
-	* The default solution is to place geoip.inc in app/vendors, and GeoIP.dat
-	* in app/webroot.
-	*
-	* If an error is encountered like "Fatal error: Call to undefined
-	* function geoip_open()", it indicates that the 'sourceFile'
-	* value is incorrect.
-	*
-	* If an error is encountered like "Warning: [function.fopen]: failed to
-	* open stream: No such file or directory", it indicates that the
-	* 'resourceFile' value is incorrect.
-	*/
-	function initialize(&$controller, $settings = array())
-	{
+	 * Called before Controller::beforeFilter().
+	 *
+	 * @param array $settings is used to pass all parameters to the component,
+	 * and has the following possible keys by default -- all of which are
+	 * optional:
+	 *
+	 * array(
+	 *	'sourceFile' => "geoip.inc", // path to source file
+	 *	'resourceFile' => "GeoIP.dat" // path to resource file
+	 * )
+	 *
+	 * An example $components definition in your controller would look like:
+	 *
+	 * var $components = array("Geoip" => array(
+	 *	"sourceFile" => "foo",
+	 *	"resourceFile" => "bar")
+	 * );
+	 *
+	 * The default solution is to place geoip.inc in app/vendors, and GeoIP.dat
+	 * in app/webroot.
+	 *
+	 * If an error is encountered like "Fatal error: Call to undefined
+	 * function geoip_open()", it indicates that the 'sourceFile'
+	 * value is incorrect.
+	 *
+	 * If an error is encountered like "Warning: [function.fopen]: failed to
+	 * open stream: No such file or directory", it indicates that the
+	 * 'resourceFile' value is incorrect.
+	 */
+	function initialize(&$controller, $settings = array()) {
 		$this->controller =& $controller; // saving the controller reference for later use
 
 		// set some $defaults
@@ -72,46 +72,37 @@ class GeoIPComponent extends Object {
 	}
 
 	/**
-	* Called after Controller::beforeFilter().
-	*/
-	function startup(&$controller)
-	{
-
+	 * Called after Controller::beforeFilter().
+	 */
+	function startup(&$controller) {
 	}
 
 	/**
-	* Called after Controller::beforeRender().
-	*/
-	function beforeRender(&$controller)
-	{
-
+	 * Called after Controller::beforeRender().
+	 */
+	function beforeRender(&$controller) {
 	}
 
 	/**
-	* Called after Controller::render().
-	*/
-	function shutdown(&$controller)
-	{
-		geoip_close($gi); // cleanup
+	 * Called after Controller::render().
+	 */
+	function shutdown(&$controller) {
+		geoip_close($this->gi); // cleanup
 	}
 
 	/**
-	* Called before Controller::redirect().
-	*/
-	function beforeRedirect(&$controller, $url, $status = null, $exit = true)
-	{
-
+	 * Called before Controller::redirect().
+	 */
+	function beforeRedirect(&$controller, $url, $status = null, $exit = true) {
 	}
 
 	// methods
 
-	function countryCode($address = null)
-	{
+	function countryCode($address = null) {
 		return geoip_country_code_by_addr($this->gi, $address);
 	}
 
-	function countryName($address = null)
-	{
+	function countryName($address = null) {
 		return geoip_country_name_by_addr($this->gi, $address);
 	}
 }

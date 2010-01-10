@@ -1,8 +1,8 @@
 <?php
 /**
- * GeoIPComponent for CakePHP 1.2.x.x (geoip.php).
+ * GeoipComponent for CakePHP 1.2.x.x (geoip.php).
  *
- * Copyright (C) Wayne Khan 2009
+ * Copyright (C) Wayne Khan 2010
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -18,11 +18,11 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
  */
-class GeoIPComponent extends Object {
+class GeoipComponent extends Object {
 	// attributes
 
 	var $controller = null; // controller reference
-	var $gi = null; // GeoIP object
+	var $gi = null; // wraps
 
 	// callbacks
 
@@ -41,8 +41,8 @@ class GeoIPComponent extends Object {
 	 * An example $components definition in your controller would look like:
 	 *
 	 * var $components = array("Geoip" => array(
-	 *	"sourceFile" => "foo",
-	 *	"resourceFile" => "bar")
+	 *		"sourceFile" => "foo",
+	 *		"resourceFile" => "bar")
 	 * );
 	 *
 	 * The default solution is to place geoip.inc in app/vendors, and GeoIP.dat
@@ -62,8 +62,8 @@ class GeoIPComponent extends Object {
 		// set some $defaults
 
 		$default = array(
-			"sourceFile" => "geoip.inc", // e.g. app/vendors/geoip.inc
-			"resourceFile" => WWW_ROOT . "GeoIP.dat" // e.g. app/webroot/GeoIP.dat
+			"sourceFile" => "geoip.inc", // app/vendors/geoip.inc
+			"resourceFile" => WWW_ROOT . "GeoIP.dat" // app/webroot/GeoIP.dat
 		);
 		$options = Set::merge($default, $settings); // ... but prefer controller $settings
 

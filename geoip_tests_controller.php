@@ -1,16 +1,18 @@
 <?php
 class GeoipTestsController extends AppController {
+	var $autoRender = false;
 	var $components = array("Geoip");
+	var $layout = false;
 	var $uses = array();
 
-	function countryCode($ip_address = null) {
-		pr($this->Geoip->countryCode($ip_address));
-		exit;
-	}
-
-	function countryName($ip_address = null) {
-		pr($this->Geoip->countryCode($ip_address));
-		exit;
+	function index($ipAddress = null) {
+		if (is_null($ipAddress)) {
+			$ipAddress = "8.8.8.8"; // Google DNS
+		}
+		
+		$countryCode = $this->Geoip->countryCode($ipAddress);
+		$countryName = $this->Geoip->countryName($ipAddress);
+		print sprintf("%s, %s", $countryCode, $countryName);
 	}
 }
 ?>

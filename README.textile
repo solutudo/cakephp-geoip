@@ -13,12 +13,9 @@ h2. Installation
 
 p. Place geoip.inc in app/vendors, and GeoIP.dat in app/webroot.
 
-h2. Demo
+h2. Unit Test
 
-p. Copy the supplied geoip_tests_controller.php to your app/controllers, and access the countryCode, countryName actions; e.g.
-
-* http://path/to/CakePHP/geoip_tests/countryCode/67.205.41.208
-* http://path/to/CakePHP/geoip_tests/countryName/67.205.41.208
+p. Copy the supplied geoip.test.php into app/tests/cases, and access the CakePHP test suite at app/webroot/test.php. Select 'Test Cases' and then 'Geoip'.
 
 h2. Usage
 

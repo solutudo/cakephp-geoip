@@ -4,18 +4,22 @@
 
 ## Requirements
 
-MaxMind pure PHP module: [geoip.inc]
-MaxMind GeoLite Country: [GeoIP.dat.gz]
+* MaxMind pure PHP module: [geoip.inc]
+* MaxMind GeoLite Country: [GeoIP.dat.gz]
 
 ## Installation
 
-1. Place [geoip.inc] in ./vendors/.
-1. Decompress [GeoIP.dat.gz] and place GeoIP.dat.gz in ./app/webroot/.
+Make sure the following list of files exist:
+
+* ./app/controllers/components/geoip.php
+* ./app/tests/cases/components/geoip.test.php
+* ./app/webroot/GeoIP.dat
+* ./vendors/geoip.inc
 
 ## Common Errors
 
-**Fatal error: Call to undefined function geoip_open()**. Check if ./app/vendors/geoip.inc is present.
-**Can not open app/webroot/GeoIP.dat**. Check if ./app/webroot/GeoIP.dat is present.
+* **Fatal error: Call to undefined function geoip_open()**. Check if ./app/vendors/geoip.inc is present.
+* **Can not open app/webroot/GeoIP.dat**. Check if ./app/webroot/GeoIP.dat is present.
 
 ## CakePHP Test Suite
 
@@ -27,8 +31,8 @@ Otherwise, you may also navigate via the navigation bar: App &gt; Test Cases &gt
 
 If all goes well, output like the following is produced:
 
-Individual test case: geoip.test.php
-1/1 test cases complete: 8 passes, 0 fails and 0 exceptions.
+* Individual test case: geoip.test.php
+* 1/1 test cases complete: 8 passes, 0 fails and 0 exceptions.
 
 [geoip.inc]:http://geolite.maxmind.com/download/geoip/api/php/geoip.inc
 [GeoIP.dat.gz]:http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz

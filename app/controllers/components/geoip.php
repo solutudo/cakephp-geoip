@@ -20,7 +20,7 @@ class GeoipComponent extends Object {
 		$this->gi = geoip_open($settings['res'], GEOIP_STANDARD);
 	}
 
-	function shutdown(&$controller) {
+	function shutdown() {
 		geoip_close($this->gi); // cleanup
 	}
 
